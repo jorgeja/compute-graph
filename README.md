@@ -1,9 +1,10 @@
 ### compute-graph
 
-Generic graph for combining nodes that do some computation on a list of inputs of the same type, outputing the same or another type. Just implement the 'Compute' trait for your type and add it to the graph.
+Generic DAG for combining nodes that do some computation on a list of inputs of the same type, outputing the same or another type. 
+Just implement the 'Compute' trait for your type and add it to the graph.
 
 
-'''rust
+```rust
 #[derive(Clone)]
 struct Sum(f64);
 impl Compute for Sum {
@@ -27,4 +28,4 @@ let compute_graph = graph.build::<f64, f64>().unwrap();
 let value = compute_graph.compute(&1.0);
 assert_eq!(value, 43.0);
 
-'''
+```
